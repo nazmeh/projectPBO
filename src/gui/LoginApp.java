@@ -15,7 +15,6 @@ public class LoginApp extends JFrame {
     public JTextField username;
     private JPasswordField password;
     private boolean loginSuccess = false;
-
     public LoginApp() {
         super("Brick Breaker Login");
         this.username = new JTextField();

@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Register {
-
     public static void register(String username, String password) throws SQLException {
         String checkQuery = "SELECT COUNT(*) FROM USERS WHERE username = '" + username + "'";
         try (Statement checkStmt = JDBC.client.createStatement()) {

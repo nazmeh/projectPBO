@@ -15,8 +15,6 @@ public class JDBC {
         } catch (SQLException e) {
             System.out.println("Connection failure.");
             e.printStackTrace(); // Menampilkan informasi kesalahan ke konsol
-            // Atau Anda dapat melempar Exception lebih lanjut atau menangani dengan cara
-            // lain
         }
     }
 
@@ -60,9 +58,5 @@ public class JDBC {
             }
         }
         return null;
-    }
-
-    public static void main(String[] args) {
-        JDBC db = new JDBC();
     }
 }

@@ -1,4 +1,4 @@
-    package gui;
+package gui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +21,6 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 showGameplay();
-                // dispose();
             }
         });
 
@@ -65,9 +64,6 @@ public class Menu extends JFrame {
         setVisible(true);
     }
 
-    public void getScore() {
-    }
-
     private void showGameplay() {
         JFrame gameFrame = new JFrame();
         Gameplay gamePlay = new Gameplay();
@@ -78,11 +74,5 @@ public class Menu extends JFrame {
         gameFrame.add(gamePlay);
         gameFrame.setLocationRelativeTo(null);
         gameFrame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new Menu();
-        });
     }
 }

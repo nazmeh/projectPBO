@@ -27,7 +27,7 @@ public class ScorePage extends JFrame {
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
             JLabel leaderboardLabel = new JLabel("SCOREBOARD");
-            leaderboardLabel.setFont(new Font("Poppins", Font.BOLD, 15));
+            leaderboardLabel.setFont(new Font("Poppins", Font.BOLD, 12));
             leaderboardLabel.setForeground(Color.white);
             leaderboardLabel.setBackground(Color.decode("#2c3e50"));
             leaderboardLabel.setOpaque(true);

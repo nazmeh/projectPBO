@@ -20,8 +20,10 @@ public abstract class MusicPlayer {
             isPlaying = true;
             System.out.println("Music started");
         } else {
+            playMusic(getMusicFile());
             System.out.println("Music is already playing");
         }
+        
     }
 
     // Metode abstrak untuk mendapatkan file musik yang akan diputar

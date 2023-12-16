@@ -26,6 +26,7 @@ public class Gameplay extends JPanel implements GameplayAction, KeyListener, Act
 	private int ballXdir = -1;
 	private int ballYdir = -2;
 	private MapGenerator map;
+	private SoundMusicPlayer musicPlayer;
 
 	public Gameplay() {
 		map = new MapGenerator(3, 7);
@@ -33,6 +34,7 @@ public class Gameplay extends JPanel implements GameplayAction, KeyListener, Act
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
 		startBallMovementThread();
+		musicPlayer = new SoundMusicPlayer();
 	}
 
 	public static Connection getConnection() {
@@ -138,6 +140,7 @@ public class Gameplay extends JPanel implements GameplayAction, KeyListener, Act
 			play = false;
 			ballXdir = 0;
 			ballYdir = 0;
+			musicPlayer.start();
 			g.setColor(Color.RED);
 			g.setFont(new Font("serif", Font.BOLD, 30));
 			g.drawString("Game Over, Scores: " + score, 190, 300);

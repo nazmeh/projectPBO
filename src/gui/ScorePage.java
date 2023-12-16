@@ -23,7 +23,7 @@ public class ScorePage extends JFrame implements ScoreListener {
             JScrollPane scrollPane = new JScrollPane();
             scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 10));
             JPanel panel = new JPanel();
-            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)  );
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
             JLabel leaderboardLabel = new JLabel("SCOREBOARD");
             leaderboardLabel.setFont(new Font("Poppins", Font.BOLD, 12));
             leaderboardLabel.setForeground(Color.white);
@@ -32,20 +32,11 @@ public class ScorePage extends JFrame implements ScoreListener {
             leaderboardLabel.setBounds(10, 10, 120, 25);
             panel.add(leaderboardLabel);
 
-<<<<<<< HEAD
-
-            while (resultSet.next()) {
-                String playerName = resultSet.getString("username");
-                int score = resultSet.getInt("score");
-                
-                JLabel usernameLabel = new JLabel(playerName + " Score: " + score + " WPM");
-=======
             while (topScores.next()) {
                 String playerName = topScores.getString("username");
                 int score = topScores.getInt("score");
 
                 JLabel usernameLabel = new JLabel(playerName + " Score: " + score);
->>>>>>> de65efb92c360064d45b100fb279726bc9b6e500
                 panel.add(usernameLabel);
             }
             scrollPane.setViewportView(panel);
@@ -57,7 +48,6 @@ public class ScorePage extends JFrame implements ScoreListener {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            // Tambahkan penanganan exception lainnya sesuai kebutuhan
             JOptionPane.showMessageDialog(this, "Failed to retrieve scores. Please check the database connection.");
         }
 

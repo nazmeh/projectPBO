@@ -25,7 +25,7 @@ public class ScorePage extends JFrame {
             JScrollPane scrollPane = new JScrollPane();
             scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 10));
             JPanel panel = new JPanel();
-            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)  );
             JLabel leaderboardLabel = new JLabel("SCOREBOARD");
             leaderboardLabel.setFont(new Font("Poppins", Font.BOLD, 15));
             leaderboardLabel.setForeground(Color.white);
@@ -34,11 +34,12 @@ public class ScorePage extends JFrame {
             leaderboardLabel.setBounds(10, 10, 120, 25);
             panel.add(leaderboardLabel);
 
+
             while (resultSet.next()) {
                 String playerName = resultSet.getString("username");
                 int score = resultSet.getInt("score");
-
-                JLabel usernameLabel = new JLabel(playerName + " Score: " + score);
+                
+                JLabel usernameLabel = new JLabel(playerName + " Score: " + score + " WPM");
                 panel.add(usernameLabel);
             }
             scrollPane.setViewportView(panel);
@@ -50,6 +51,7 @@ public class ScorePage extends JFrame {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            // Tambahkan penanganan exception lainnya sesuai kebutuhan
             JOptionPane.showMessageDialog(this, "Failed to retrieve scores. Please check the database connection.");
         }
 

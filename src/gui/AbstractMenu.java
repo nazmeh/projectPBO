@@ -9,4 +9,6 @@ public abstract class AbstractMenu {
 
     // Metode abstract untuk exit
     public abstract void exitButton();
+
 }
+

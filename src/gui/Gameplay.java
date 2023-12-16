@@ -29,7 +29,7 @@ public class Gameplay extends JPanel implements GameplayAction, KeyListener, Act
 	private SoundMusicPlayer musicPlayer;
 
 	public Gameplay() {
-		map = new MapGenerator(2, 5);
+		map = new MapGenerator(3, 7);
 		addKeyListener(this);
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
@@ -125,7 +125,6 @@ public class Gameplay extends JPanel implements GameplayAction, KeyListener, Act
 			play = false;
 			ballXdir = 0;
 			ballYdir = 0;
-			musicPlayer.start();
 			g.setColor(Color.RED);
 			g.setFont(new Font("serif", Font.BOLD, 30));
 			g.drawString("You Won", 260, 300);
@@ -151,7 +150,7 @@ public class Gameplay extends JPanel implements GameplayAction, KeyListener, Act
 			g.drawString("Press (Enter) to Restart", 230, 350);
 			g.drawString("Press (Esc) to Exit", 250, 400);
 		}
-		
+
 		g.dispose();
 	}
 
@@ -206,13 +205,13 @@ public class Gameplay extends JPanel implements GameplayAction, KeyListener, Act
 	@Override
 	public void moveRight() {
 		play = true;
-		playerX += 5;
+		playerX += 20;
 	}
 
 	@Override
 	public void moveLeft() {
 		play = true;
-		playerX -= 5;
+		playerX -= 20;
 	}
 
 	public void actionPerformed(ActionEvent e) {

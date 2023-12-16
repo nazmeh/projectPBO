@@ -1,6 +1,8 @@
 package gui;
 
 import javax.swing.*;
+// import javax.swing.Timer;
+
 import api.JDBC;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,14 +14,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JFrame;
 
-public class Gameplay extends JPanel implements KeyListener, ActionListener {
+public class Gameplay extends JPanel implements GameplayAction, KeyListener, ActionListener {
 	private boolean play = false;
 	public static int score = 0;
 	private int totalBricks = 21;
-	private Timer timer;
-	private int delay = 20;
+	private int delay = 10;
 	private int playerX = 310;
 	private int ballposX = 120;
 	private int ballposY = 350;
@@ -32,9 +32,6 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 		addKeyListener(this);
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
-		timer = new Timer(delay, this);
-		timer.start();
-		// Start the ball movement thread
 		startBallMovementThread();
 	}
 
@@ -202,18 +199,19 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 		// Implement keyTyped method
 	}
 
+	@Override
 	public void moveRight() {
 		play = true;
 		playerX += 20;
 	}
 
+	@Override
 	public void moveLeft() {
 		play = true;
 		playerX -= 20;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		timer.start();
 		if (play) {
 			if (new Rectangle(ballposX, ballposY, 20, 20).intersects(new Rectangle(playerX, 550, 30, 8))) {
 				ballYdir = -ballYdir;

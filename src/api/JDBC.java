@@ -26,9 +26,10 @@ public class JDBC {
         return user_id;
     }
 
-    public static ResultSet getScore() throws SQLException {
-        String query = "SELECT username, score FROM score JOIN users ON score.player_id = users.id ORDER BY score DESC";
+    public static ResultSet getTopScores(int limit) throws SQLException {
+        String query = "SELECT username, score FROM score JOIN users ON score.player_id = users.id ORDER BY score DESC LIMIT ?";
         PreparedStatement preparedStatement = client.prepareStatement(query);
+        preparedStatement.setInt(1, limit);
         return preparedStatement.executeQuery();
     }
 

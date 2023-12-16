@@ -14,13 +14,9 @@ public class ScorePage extends JFrame {
     }
 
     private void initComponents() {
-        JTextArea scoreTextArea = new JTextArea();
-        scoreTextArea.setEditable(false);
-
         try {
             // Mendapatkan ResultSet dari API JDBC
-            ResultSet resultSet = JDBC.getScore();
-
+            ResultSet topScores = JDBC.getTopScores(5);
             // Menampilkan skor dalam JPanel
             JScrollPane scrollPane = new JScrollPane();
             scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 10));
@@ -34,9 +30,9 @@ public class ScorePage extends JFrame {
             leaderboardLabel.setBounds(10, 10, 120, 25);
             panel.add(leaderboardLabel);
 
-            while (resultSet.next()) {
-                String playerName = resultSet.getString("username");
-                int score = resultSet.getInt("score");
+            while (topScores.next()) {
+                String playerName = topScores.getString("username");
+                int score = topScores.getInt("score");
 
                 JLabel usernameLabel = new JLabel(playerName + " Score: " + score);
                 panel.add(usernameLabel);

@@ -67,6 +67,7 @@ public class Menu extends JFrame {
     private void showGameplay() {
         JFrame gameFrame = new JFrame();
         Gameplay gamePlay = new Gameplay();
+
         gameFrame.setBounds(10, 10, 700, 600);
         gameFrame.setTitle("Breakout Ball");
         gameFrame.setResizable(false);

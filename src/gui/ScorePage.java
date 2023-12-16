@@ -7,7 +7,9 @@ import java.awt.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ScorePage extends JFrame {
+public class ScorePage extends JFrame implements ScoreListener {
+
+    private JPanel panel;
 
     public ScorePage() {
         initComponents();
@@ -49,6 +51,17 @@ public class ScorePage extends JFrame {
             JOptionPane.showMessageDialog(this, "Failed to retrieve scores. Please check the database connection.");
         }
 
+    }
+
+    @Override
+    public void updateScore(String playerName, int score) {
+        // Update nilai skor pada UI atau lakukan tindakan lain
+        SwingUtilities.invokeLater(() -> {
+            JLabel usernameLabel = new JLabel(playerName + " Score: " + score);
+            panel.add(usernameLabel);
+            // Mungkin perlu memperbarui tampilan skor pada layar
+            // atau melakukan operasi UI lainnya.
+        });
     }
 
     public void showScore() {

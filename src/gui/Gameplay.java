@@ -1,8 +1,6 @@
 package gui;
 
 import javax.swing.*;
-// import javax.swing.Timer;
-
 import api.JDBC;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,10 +18,10 @@ public class Gameplay extends JPanel implements GameplayAction, KeyListener, Act
 	public static int score = 0;
 	private int totalBricks = 21;
 	private int delay = 10;
-	private int playerX = 310;
-	private int ballposX = 120;
+	private int playerX = 310; // posisi pemain
+	private int ballposX = 120; // posisi bola
 	private int ballposY = 350;
-	private int ballXdir = -1;
+	private int ballXdir = -1; // pergerakan bola
 	private int ballYdir = -2;
 	private MapGenerator map;
 	private SoundMusicPlayer musicPlayer;
